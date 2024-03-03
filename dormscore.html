@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dorm Accessibility Rankings</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #8a7bdf;
+            color: #faf4f4;
+            text-align: center;
+            padding: 1em;
+        }
+
+        section {
+            max-width: 800px;
+            margin: 2em auto;
+            padding: 1em;
+            background-color: rgb(185, 184, 251);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        .box {
+            display: inline-block;
+            width: 300px;
+            height: 100px;
+            margin: 10px;
+            border: 2px solid #8a7bdf;;
+            cursor: pointer;
+            overflow: hidden;
+            border-radius: 5px;
+            background-color: #fff;
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .box:hover {
+            transform: scale(1.05);
+        }
+
+        .box img {
+            width: 60%;
+            height: 80%;
+            object-fit: contain;
+        }
+
+        footer {
+            background-color: #8a7bdf;;
+            color: #fff;
+            text-align: center;
+            padding: 1em;
+            width: 100%;
+            bottom: 0;
+        }
+
+        #description {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 10px;
+            margin-top: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+
+        #description h2 {
+            color: rgb(185, 184, 251);
+        }
+
+        #description strong {
+            color: #333;
+        }
+
+        #map {
+            display: none; /* Hide the map by default */
+            height: 300px;
+            width: 100%;
+            margin-top: 20px;
+            border-radius: 10px;
+        }
+        .review-link {
+            display: block;
+            text-decoration: none;
+            font-size: 1.5em;
+            margin: 20px auto;
+            width: fit-content;
+            padding: 10px 20px;
+            background-color: #8a7bdf;
+            color: #fff;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Dorm Accessibility Rankings</h1>
+</header>
+
+<section>
+    <h2>The reviews are just one click away!</h2>
+    <p>We have chosen to rank six California universities based on the <b>accessibility of their freshman dorms</b>. We chose three different kinds of universities, <b>Cal States</b>, <b>UCs</b>, and <b>Private Schools</b>. We are comparing the top (according to Google) dorm from each school. Accessibility will be based on three categories: <b>ease of requesting accommodations</b>, <b>policies on service animals</b>, and <b>access to dorm facilities</b>. </p>
+
+    <!-- Box 1 -->
+    <div class="box" onclick="showDescription('Box 1', 'University of Southern California')">University of Southern California
+        <img src="https://dormaccessibility.files.wordpress.com/2024/03/usc-logo.jpg" alt="Image 1">
+    </div>
+
+    <!-- Box 2 -->
+    <div class="box" onclick="showDescription('Box 2', 'Loyola Marymount University')">Loyola Marymount University
+        <img src="https://dormaccessibility.files.wordpress.com/2024/03/lmulogo-edited.jpg" alt="Image 2">
+    </div>
+
+    <!-- Box 3 -->
+    <div class="box" onclick="showDescription('Box 3', 'California State University, Northridge')">California State University, Northridge
+        <img src="https://dormaccessibility.files.wordpress.com/2024/03/2560px-csu_northridge_logo.svg_.jpg?w=2048" alt="Image 3">
+    </div>
+
+    <!-- Box 4 -->
+    <div class="box" onclick="showDescription('Box 4', 'California State Polytechnic University, Pomona')">California Polytechnic University, Pomona
+        <img src="https://dormaccessibility.files.wordpress.com/2024/03/cpplogo.jpg?w=1024" alt="Image 4">
+    </div>
+
+    <!-- Box 5 -->
+    <div class="box" onclick="showDescription('Box 5', 'University of California, Los Angeles')">University of California, Los Angeles
+        <img src="https://dormaccessibility.files.wordpress.com/2024/03/ucla_bruins_script.svg_.jpg?w=2048" alt="Image 5">
+    </div>
+
+    <!-- Box 6 -->
+    <div class="box" onclick="showDescription('Box 6', 'University of California, Irvine')">University of California, Irvine
+        <img src="https://dormaccessibility.files.wordpress.com/2024/03/ucilogo.png?w=1024" alt="Image 6">
+    </div>
+
+    <div id="description"></div> <!-- Container for displaying descriptions -->
+
+    <!-- Google Maps container -->
+    <div id="map"></div>
+    <!-- Review button -->
+    <a href="review.html" class="review-link">Review</a>
+    <p id="review-description">Click the "Review" button to leave your feedback about the dorm accessibility.</p>
+</section>
+
+<footer>
+    <p>&copy; Marleena Farah Juliat. All rights reserved.</p>
+</footer>
+
+<script>
+    function showDescription(box, schoolName) {
+        var descriptionContainer = document.getElementById('description');
+        var mapContainer = document.getElementById('map');
+        switch (box) {
+            case 'Box 1':
+                descriptionContainer.innerHTML = `
+                    <div style="text-align: left;">
+                        <h2>Parkside Apartments</h2>
+                        <img src="https://dormaccessibility.files.wordpress.com/2024/03/usc-logo.jpg" alt="Image 1" style="width: 100%; border-radius: 10px 10px 0 0;">
+                        <p style="padding: 10px;">
+                            <strong>Requesting Accommodations 5/5:</strong> The University follows all applicable state and federal laws regarding accommodation of individuals with physical and mental disabilities. <br>
+                            <strong>Service Animals 5/5:</strong> The University of Southern California permits the presence of trained Service Animals assisting individuals with disabilities on its campus in areas open to the public, consistent with the provisions of this policy and applicable law. <br>
+                            <strong>Access to Dorm Facilities 5/5:</strong> Elevators and air conditioning in the building. Close to the Parkside Dining Hall and some academic buildings . Single dorms are avalible for students, but no mention on if they are ADA compliant.
+                        </p>
+                    </div>
+                `;
+                mapContainer.style.display = 'block'; // Display the map
+                initializeMap(schoolName); // Initialize the map with the selected school
+                break;
+            case 'Box 2':
+                descriptionContainer.innerHTML = `
+                    <div style="text-align: left;">
+                        <h2>Palm North 4/5</h2>
+                        <img src="https://dormaccessibility.files.wordpress.com/2024/03/lmulogo-edited.jpg" alt="Image 2" style="width: 100%; border-radius: 10px 10px 0 0;">
+                        <p style="padding: 10px;">
+                            <strong>Requesting Accommodations 4/5:</strong> Applying for accommodations for physical or mental disabilities only requires students to submit medical documentation online through the DSS portal. DSS gives students the chance to request specific accommodations. However, wait times for a response can range anywhere from 5 days to longer than 15 days. <br>
+                            <strong>Service Animals 5/5:</strong> Service animals can be either a dog or (in some cases) a miniature horse, but animals must demonstrate a specific ability that helps prevent or alert. Assistance animals are also allowed (with no listed restraints on the type of animal) if they reduce the emotional severity of a disability. <br>
+                            <strong>Access to Dorm Facilities 3/5:</strong> A ramp to enter the building but stairs on the inside are steep. Elevators and air conditioning are a building feature, however they are often broken. Alarms are not equipped with visual signals, and are consistently broken. Considerable distance from the dorms to the largest academic building on campus.
+                        </p>
+                    </div>
+                `;
+                mapContainer.style.display = 'block'; // Display the map
+                initializeMap(schoolName); // Initialize the map with the selected school
+                break;
+            case 'Box 3':
+                descriptionContainer.innerHTML = `
+                    <div style="text-align: left;">
+                        <h2>The Park Apartments 4/5</h2>
+                        <img src="https://dormaccessibility.files.wordpress.com/2024/03/2560px-csu_northridge_logo.svg_.jpg?w=1024" alt="Image 1" style="width: 100%; border-radius: 10px 10px 0 0;">
+                        <strong>Requesting Accommodations 5/5:</strong> Disability Resources and Educational Services (DRES) offers accommodations to ensure access and support services to promote success. Reasonable accommodations are determined individually Accommodations are provided on a case-by-case basis.<br>
+                        <strong>Service Animal 3/5:</strong> No animals shall be permitted inside University facilities with the exception of those authorized by the responsible administrative Dean. Service animals must be licensed in accordance with county regulations, wear a vaccination tag, and be on a leash.<br>
+                        <strong>Access to Dorm Facilities 4/5:</strong> You are encouraged to speak with a DRES Counselor to explore reasonable accommodations and discuss issues related to access. The DRES Counselor will determine your eligibility for services and authorize any accommodations or support services.
+                    </p>
+                    </div>
+                `;
+                mapContainer.style.display = 'block'; // Display the map
+                initializeMap(schoolName); // Initialize the map with the selected school
+                break;
+            case 'Box 4':
+                descriptionContainer.innerHTML = `
+                    <div style="text-align: left;">
+                        <h2>Vista Del Sol 4.6/5</h2>
+                        <img src="https://dormaccessibility.files.wordpress.com/2024/03/cpplogo.jpg?w=1024" alt="Image 1" style="width: 100%; border-radius: 10px 10px 0 0;">
+                        <p style="padding: 10px;">
+                            <strong>Requesting Accommodations 4/5:</strong>Students requesting a housing accommodations must follow the University Housing Services procedures and submit disability documentation to DRC. Accommodations in housing are approved on a case by case basis and are dependent on the nature of the disability and/or health condition as well as the impact in the campus living environment. <br>
+                            <strong>Service Animals 5/5:</strong> They allow service animal. They do not specify the type of animal a student can have as a service animal. The webpage with the info about service animal is broken. <br>
+                            <strong>Access to Dorm Facilities 5/5:</strong> Dorms are equipped with multiple elevators . The unit plans are also available in an ADA-compliant model.
+                        </p>
+                    </div>
+                `;
+                mapContainer.style.display = 'block'; // Display the map
+                initializeMap(schoolName); // Initialize the map with the selected school
+                break;
+            case 'Box 5':
+                descriptionContainer.innerHTML = `
+                    <div style="text-align: left;">
+                        <h2>Sproul Cove 3.4/5</h2>
+                        <img src="https://dormaccessibility.files.wordpress.com/2024/03/ucla_bruins_script.svg_.jpg?w=1024" alt="Image 1" style="width: 100%; border-radius: 10px 10px 0 0;">
+                        <p style="padding: 10px;">
+                            <strong>Requesting Accommodations 2/5:</strong> The school adheres to federal and state laws regarding what constitutes as a disability. As such, a medical diagnosis as disabled is not sufficient to request accommodations. <br>
+                            <strong>Service Animals 5/5:</strong> The school allows service animals with appropriate documentation. Service animals can only be dogs or miniature horses. In addition, there is a separate category for assistance animals, which can be any kind of animal. <br>
+                            <strong>Access to Dorm Facilities 3/5:</strong> Dorms are equipped with elevators and air conditioning. However, ramps are incredibly steep and difficult to navigate and theres also numerous steps needed to acccess the dorms. In addition, rooms are all double or triple occupancy with no single rooms available. There is also no note of if the building has visual signals to accompany fire alarms.
+                        </p>
+                    </div>
+                `;
+                mapContainer.style.display = 'block'; // Display the map
+                initializeMap(schoolName); // Initialize the map with the selected school
+                break;
+            case 'Box 6':
+                descriptionContainer.innerHTML = `
+                    <div style="text-align: left;">
+                        <h2>Vista del Campo 4.6/5</h2>
+                        <img src="https://dormaccessibility.files.wordpress.com/2024/03/ucilogo.png?w=1024" alt="Image 1" style="width: 100%; border-radius: 10px 10px 0 0;">
+                        <p style="padding: 10px;">
+                            <strong>Requesting Accommodations 5/5:</strong> UC Irvine Student Housing works in close partnership with <a href="https://dsc.uci.edu/">the Disability Services Center </a>. Housing accommodation decisions where physical, medical, psychological, or developmental needs are to be taken into consideration are based on written recommendation from the Disability Services Center. <br>
+                        <strong>Service Animals 4/5:</strong>Welcomes patients who require a service animal that is individually trained to perform tasks for a person with a disability. If you have a service animal that meets the definition of one according to the Americans with Disabilities Act (ADA), you can bring your animal to all public areas of the medical center. No mention of assitance animals <br>
+                        <strong>Access to Dorm Facilities 5/5:</strong> Provides access to dorm with rams and elevator in the building. Convient place on campus is relation to academic buildings.
+                </div>
+                `;
+                mapContainer.style.display = 'block'; // Display the map
+                initializeMap(schoolName); // Initialize the map with the selected school
+                break;
+        }
+    }
+
+    var map; // Variable to hold the map object
+
+    // Function to initialize the map
+    async function initializeMap(schoolName) {
+        var mapOptions = {
+            zoom: 15,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+
+        // Map container
+        var mapContainer = document.getElementById('map');
+
+        // Set center coordinates based on the selected school
+        var centerCoords;
+        switch (schoolName) {
+            case 'University of Southern California':
+                centerCoords = { lat: 34.01926, lng: -118.29021 };
+                break;
+            case 'Loyola Marymount University':
+                centerCoords = { lat: 33.97138, lng: -118.41473 };
+                break;
+            case 'California State University, Northridge':
+                centerCoords = { lat: 34.24839, lng: -118.52476 };
+                break;
+            case 'California State Polytechnic University, Pomona':
+                centerCoords = { lat: 34.05489, lng: -117.81802 };
+                break;
+            case 'University of California, Los Angeles':
+                centerCoords = { lat: 34.07188, lng: -118.45093 };
+                break;
+            case 'University of California, Irvine':
+                centerCoords = { lat: 33.64441, lng: -117.82315 };
+                break;
+            default:
+                centerCoords = { lat: 34.052235, lng: -118.243683 }; // Default coordinates for Los Angeles
+        }
+
+        map = new google.maps.Map(mapContainer, mapOptions);
+        map.setCenter(centerCoords);
+
+        // Add marker for the selected school
+        var marker = new google.maps.Marker({
+            position: centerCoords,
+            map: map,
+            title: schoolName
+        });
+    }
+</script>
+
+<!-- Google Maps JavaScript API -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA-za8wQgj4f3orbuSeewQ3E49L26i7HfQ&callback=initializeMap" async defer></script>
+
+</body>
+</html>
